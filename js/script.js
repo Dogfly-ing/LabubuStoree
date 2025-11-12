@@ -1,5 +1,3 @@
-console.log("✅ JS funcionando!");
-alert("JS funcionando!");
 // ============ Mensagem de boas-vindas ============
 if (!localStorage.getItem('visitouLabubu')) {
   alert('👋 Bem-vindo à Labubu Store!');
