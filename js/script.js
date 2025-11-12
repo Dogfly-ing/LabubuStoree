@@ -1,62 +1,60 @@
-// ============ Mensagem de boas-vindas (versão bonita) ============
+// ============ Mensagem de boas-vindas (sempre aparece) ============
 window.addEventListener("DOMContentLoaded", () => {
-  if (!localStorage.getItem("visitouLabubu")) {
-    // Cria o fundo escuro
-    const overlay = document.createElement("div");
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-    `;
+  // Cria o fundo escuro
+  const overlay = document.createElement("div");
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  `;
 
-    // Cria a caixinha da mensagem
-    const modal = document.createElement("div");
-    modal.style.cssText = `
-      background: #fff;
-      color: #222;
-      padding: 2rem 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      text-align: center;
-      max-width: 400px;
-      font-family: 'Poppins', sans-serif;
-      animation: aparecer 0.3s ease-out;
-    `;
-    modal.innerHTML = `
-      <h2 style="margin-bottom: 0.8rem; color: #ff4081;">🌸 Bem-vindo à Labubu Store!</h2>
-      <p style="margin-bottom: 1.2rem;">Ficamos felizes em ter você aqui 💖<br>
-      Explore nossos produtos e aproveite!</p>
-      <button id="fecharBoasVindas" 
-        style="background: #ff4081; color: white; border: none; padding: 0.6rem 1.4rem;
-               border-radius: 8px; cursor: pointer; font-size: 1rem;">
-        Começar 🛍️
-      </button>
-    `;
+  // Cria a caixinha da mensagem
+  const modal = document.createElement("div");
+  modal.style.cssText = `
+    background: #fff;
+    color: #222;
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 400px;
+    font-family: 'Poppins', sans-serif;
+    animation: aparecer 0.3s ease-out;
+  `;
+  modal.innerHTML = `
+    <h2 style="margin-bottom: 0.8rem; color: #ff4081;">🌸 Bem-vindo à Labubu Store!</h2>
+    <p style="margin-bottom: 1.2rem;">Ficamos felizes em ter você aqui 💖<br>
+    Explore nossos produtos e aproveite!</p>
+    <button id="fecharBoasVindas" 
+      style="background: #ff4081; color: white; border: none; padding: 0.6rem 1.4rem;
+             border-radius: 8px; cursor: pointer; font-size: 1rem;">
+      Começar 🛍️
+    </button>
+  `;
 
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
 
-    // Fecha o modal e salva no localStorage
-    document.getElementById("fecharBoasVindas").addEventListener("click", () => {
-      overlay.remove();
-      localStorage.setItem("visitouLabubu", "sim");
-    });
+  // Fecha o modal
+  document.getElementById("fecharBoasVindas").addEventListener("click", () => {
+    overlay.remove();
+  });
 
-    // Animação simples de entrada
-    const style = document.createElement("style");
-    style.textContent = `
-      @keyframes aparecer {
-        from { transform: scale(0.9); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-      }
-    `;
-    document.head.appendChild(style);
-  }
+  // Animação de entrada
+  const style = document.createElement("style");
+  style.textContent = `
+    @keyframes aparecer {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  `;
+  document.head.appendChild(style);
+});
   // ============ Botão "Voltar ao topo" ============
   const topBtn = document.createElement("button");
   topBtn.id = "topBtn";
