@@ -107,7 +107,7 @@ window.addEventListener("DOMContentLoaded", () => {
     filtroDiv.style.textAlign = "center";
     filtroDiv.style.marginBottom = "2rem";
     filtroDiv.innerHTML = `
-      <input id="filtro" type="text" placeholder="🔍 Buscar produto..." 
+      <input id="filtro" type="text" placeholder="Buscar produto..." 
         style="padding: 0.8rem 1rem; width: 80%; max-width: 400px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
     `;
     produtosSecao.prepend(filtroDiv);
